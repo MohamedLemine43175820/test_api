@@ -1,0 +1,74 @@
+ good methode pour utilise api dans project :
+
+
+ // 1. cree folder names  : core dans core creat folder  api
+ // dans api cree 4 file.dart
+
+ // first file.dart names : api_consumer.dart
+
+  apply principe  from oop inheritence :
+
+  par example :
+
+  class Car {}                              super class
+
+  class Bmw extends Car {}                : Bmw type mene type cars child class
+
+
+
+  class FixCars {
+
+  final Car  car
+
+  FixCars({required this.car});
+  }
+
+
+
+  // cree object from class FixCars
+
+  FixCars( car: Bmw());               pas error car BMW KIND of Car
+
+
+  Nb: je apply this method on api
+
+
+
+
+
+ // 1.  api_consumer.dart                       : first file
+
+
+
+ cree : abstract  class ApiConsumer {}                           : comme class Car{}  dans example
+
+ - cree abstract car je ne peut pas prendre object from this class je just pour cree de methods pour utilise
+ just pour cree de request
+-  cette class contient tous methods  get , post , patch , delete
+
+// apres go to FixCars dans cette example class UserCubit
+
+class UserCubit extends Cubit<UserState> {                      // comme  FixCars{}  dans example
+
+  final ApiConsumer api ;                                    // variable de type ApiConsumer(Car) par example
+  UserCubit(this.api) : super(UserInitial());
+
+ // 2. cree second file.dart : names dio_Consumer.dart
+
+ cree class DioConsumer extends ApiConsumer{}                // comme Bmw dans example
+
+ NB: cree cette class pour passe  to UserCubit car UserCubit  take variable de type ApiConsumer
+
+ et class ApiConsumer{} de type ApiConsumer
+
+ 2ne 3ndi signin dor use api meme FixCars
+
+ dans UserCubit pass dioConsumer {}, if use other package change Dio with that package
+
+ folder error pour handle exception et error
+
+
+ // third file apiInterceptors
+
+ 
+
